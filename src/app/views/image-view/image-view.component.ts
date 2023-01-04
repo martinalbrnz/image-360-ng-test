@@ -17,7 +17,7 @@ export class ImageViewComponent {
   ngOnInit(): void {
     this.panorama = pannellum.viewer('panorama', {
       type: 'equirectangular',
-      panorama: '../../assets/img/pano_7000.jpg',
+      panorama: 'assets/img/pano_7000.jpg',
       hotSpots: [
         {
           yaw: 0,
