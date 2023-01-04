@@ -8,8 +8,8 @@ declare let pannellum: any;
 })
 export class ImageViewComponent {
 
-  constructor (
-    
+  constructor(
+
   ) { }
   panorama?: any
   descripcion: string = ''
@@ -17,15 +17,56 @@ export class ImageViewComponent {
   ngOnInit(): void {
     this.panorama = pannellum.viewer('panorama', {
       type: 'equirectangular',
-      panorama: 'assets/img/pano_7000.jpg',
+      panorama: 'assets/img/306-2.jpg',
       hotSpots: [
         {
-          yaw: 0,
-          pitch: 0,
+          pitch: -28,
+          yaw: -48,
           type: "info",
-          text: "Punto de interés",
-          cssClass: 'card pnlm-hotspot-base pnlm-hotspot pnlm-sprite pnlm-info pnlm-tooltip',
-        }
+          text: "Plantas decorativas (Ficus)",
+          URL: 'https://es.wikipedia.org/wiki/Ficus',
+          // cssClass: 'card pnlm-hotspot-base pnlm-hotspot pnlm-sprite pnlm-info pnlm-tooltip',
+        },
+        {
+          pitch: -28,
+          yaw: 48,
+          type: "info",
+          text: "Plantas decorativas (Ficus)",
+          URL: 'https://es.wikipedia.org/wiki/Ficus',
+          // cssClass: 'card pnlm-hotspot-base pnlm-hotspot pnlm-sprite pnlm-info pnlm-tooltip',
+        },
+        {
+          pitch: 23,
+          yaw: -147.5,
+          type: "info",
+          text: "Iluminación",
+          URL: 'https://tienda.electricidadserra.com.ar/iluminacion',
+          // cssClass: 'card pnlm-hotspot-base pnlm-hotspot pnlm-sprite pnlm-info pnlm-tooltip',
+        },
+        {
+          pitch: 22,
+          yaw: 146,
+          type: "info",
+          text: "Objetos decorativos - Domenica Home",
+          URL: 'https://www.instagram.com/elmundodedomenica/',
+          // cssClass: 'card pnlm-hotspot-base pnlm-hotspot pnlm-sprite pnlm-info pnlm-tooltip',
+        },
+        {
+          pitch: -18,
+          yaw: 174,
+          type: "info",
+          text: "Pisos PVC",
+          URL: 'https://pisosinnovadores.com/',
+          // cssClass: 'card pnlm-hotspot-base pnlm-hotspot pnlm-sprite pnlm-info pnlm-tooltip',
+        },
+        {
+          pitch: -5,
+          yaw: -3,
+          type: "info",
+          text: "Sala de reuniones",
+          URL: 'https://www.plakart.com.ar/',
+          // cssClass: 'card pnlm-hotspot-base pnlm-hotspot pnlm-sprite pnlm-info pnlm-tooltip',
+        },
       ],
       // hotSpotDebug: true
     })
