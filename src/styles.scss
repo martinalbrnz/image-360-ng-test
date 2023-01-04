@@ -5,6 +5,24 @@
 	margin: 0;
 }
 
+.pnlm-scene{
+	animation-name: scene-tilt;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 .tooltip-image {
 	width: 200px;
+}
+
+@keyframes scene-tilt {
+	0% {
+		box-shadow: 0 0 6px 1px #0f00 ,0 0 4px 2px #fff1;
+		filter: invert(.05);
+	}
+	100% {
+		filter: invert(0);
+		box-shadow: 0 0 20px 1px #0f04 ,0 0 10px 8px #fff8;
+	}
 }

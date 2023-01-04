@@ -29,7 +29,8 @@ export class ImageViewComponent {
               yaw: 123,
               type: 'scene',
               sceneId: 'receiver',
-              text: 'Volver al recibidor'
+              text: 'Volver al recibidor',
+              // cssClass: 'custom-hotspot',
             },
           ]
         },
@@ -42,7 +43,8 @@ export class ImageViewComponent {
               yaw: 93,
               type: 'scene',
               sceneId: 'designed',
-              text: 'Sala diseñada por Plakart'
+              text: 'Sala diseñada por Plakart',
+              // cssClass: 'custom-hotspot',
             },
             {
               pitch: -28,
@@ -93,7 +95,7 @@ export class ImageViewComponent {
 
   @HostListener('window:click', ['$event'])
   onClick(e: MouseEvent) {
-    // console.log(this.panorama.getConfig())
+    console.log(this.panorama.getConfig())
     if (e.ctrlKey) {
       const [posx, posy] = this.panorama.mouseEventToCoords(e);
       // console.log({ x: posx, y: posy });
