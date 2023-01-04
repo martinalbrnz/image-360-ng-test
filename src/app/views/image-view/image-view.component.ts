@@ -143,7 +143,7 @@ export class ImageViewComponent {
   onClick(e: MouseEvent) {
     if (e.ctrlKey) {
       const [posx, posy] = this.panorama.mouseEventToCoords(event);
-      console.log({ x: posx, y: posy });
+      // console.log({ x: posx, y: posy });
       this.panorama.addHotSpot({
         yaw: posy,
         pitch: posx,
