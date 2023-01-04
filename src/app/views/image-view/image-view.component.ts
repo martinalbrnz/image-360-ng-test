@@ -93,7 +93,7 @@ export class ImageViewComponent {
 
   @HostListener('window:click', ['$event'])
   onClick(e: MouseEvent) {
-    console.log(this.panorama.getConfig())
+    // console.log(this.panorama.getConfig())
     if (e.ctrlKey) {
       const [posx, posy] = this.panorama.mouseEventToCoords(event);
       // console.log({ x: posx, y: posy });
