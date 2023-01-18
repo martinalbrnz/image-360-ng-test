@@ -1,15 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 declare let pannellum: any;
 
 @Component({
   selector: 'app-image-view',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './image-view.component.html',
   styleUrls: ['./image-view.component.scss']
 })
 export class ImageViewComponent {
 
-  constructor(
-  ) { }
+  constructor() { }
   panorama?: any
   descripcion: string = ''
 
