@@ -1,0 +1,31 @@
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	height: 100vh;
+	width: 100%;
+}
+
+.container {
+	width: 300px;
+	height: 300px;
+}
+
+.spinImg {
+	outline: 2px solid #0007;
+	cursor: pointer;
+	user-select: none;
+	// object-fit: cover;
+	// object-position: 200px 100px;
+	background-image: url('../../../assets/img/spin_360.jpg');
+	// background-image: url('https://png.pngtree.com/background/20210712/original/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg');
+	// background-attachment: fixed;
+	// background-position: 0% 50%;
+	// background-size: 300%;
+}
+
+.buttonCont {
+	display: flex;
+}

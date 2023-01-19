@@ -1,1 +1,35 @@
-<p>spin-view works!</p>
+<section>
+	<h1>Todo bien</h1>
+	<!-- <div #spinner
+		[style.width]="(width/columns)+'px'"
+		[style.height]="(height/rows)+'px'"
+		[style.object-position]="-(width/columns*(currentColumn))
+			+'px '
+			+(-height/rows*(currentRow))
+			+'px'"
+		class="spinImg"
+	></div> -->
+	<div #spinner
+		appSpinner
+		[style.width]="(width/columns)+'px'"
+		[style.height]="(height/rows)+'px'"
+		[style.background-position]="-(width/columns*(currentColumn))
+			+'px '
+			+(-height/rows*(currentRow))
+			+'px'"
+		[style.background-size]="(columns*100)+'%'"
+		class="spinImg"
+	></div>
+	
+	<div class="buttonCont">
+		<button (click)="prevCol()">izquierda</button>
+		<p>{{ currentColumn }}</p>
+		<button (click)="nextCol()">derecha</button>
+	
+		<button (click)="prevRow()">arriba</button>
+		<p>{{ currentRow }}</p>
+		<button (click)="nextRow()">abajo</button>
+	</div>
+	
+	<p>Made with ☕</p>
+</section>
