@@ -1,33 +1,33 @@
 <section>
-	<h1>Todo bien</h1>
-	<div #spinner
-		appSpinner
-		[style.width]="(width/columns)+'px'"
-		[style.height]="(height/rows)+'px'"
+	<h1>Vista Spinner</h1>
+	<div #spinner appSpinner [style.width]="(width/columns)+'px'" [style.height]="(height/rows)+'px'"
 		[style.background-position]="-(width/columns*(currentColumn))
 			+'px '
 			+(-height/rows*(currentRow))
-			+'px'"
-		[style.background-size]="(columns*100)+'%'"
-		class="spinImg"
-	></div>
+			+'px'" [style.background-size]="(columns*100)+'%'" class="spinImg"></div>
 
 	<p>Sensibilidad</p>
-	<div class="buttonCont">
+	<div class="sensCont">
 		<button class="sensbtn" (click)="changeSens(-1)">-</button>
-		<p>{{ sensibility }}</p>
+		<input type="range" min="5" max="45" [(ngModel)]="othersensibility" (ngModelChange)="changeSensSlider($event)">
 		<button class="sensbtn" (click)="changeSens(1)">+</button>
 	</div>
-	
+
 	<div class="buttonCont">
-		<button (click)="prevCol()">izquierda</button>
-		<p>{{ currentColumn }}</p>
-		<button (click)="nextCol()">derecha</button>
-	
-		<button (click)="prevRow()">arriba</button>
-		<p>{{ currentRow }}</p>
-		<button (click)="nextRow()">abajo</button>
+		<div class="moveButton left" (click)="prevCol()">
+			<p>{{'\<'}}</p>
+		</div>
+		<div class="moveButton up" (click)="prevRow()">
+			<p>{{'\<'}}</p>
+		</div>
+
+		<div class="moveButton down" (click)="nextRow()">
+			<p>{{'\<'}}</p>
+		</div>
+		<div class="moveButton right" (click)="nextCol()">
+			<p>{{'\<'}}</p>
+		</div>
 	</div>
-	
+
 	<p>Made with ☕</p>
 </section>

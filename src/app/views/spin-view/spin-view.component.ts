@@ -1,13 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { bufferCount, empty, Observable, throttleTime } from 'rxjs';
 import { SpinnerDirective } from 'src/app/directives/spinner.directive';
 import { SpinnerService } from 'src/app/services/spinner.service';
-import { bufferCount, map, Observable, throttleTime } from 'rxjs'
 
 @Component({
   selector: 'app-spin-view',
   standalone: true,
-  imports: [CommonModule, SpinnerDirective],
+  imports: [
+    CommonModule,
+    SpinnerDirective,
+    FormsModule,
+  ],
   templateUrl: './spin-view.component.html',
   styleUrls: ['./spin-view.component.scss']
 })
@@ -41,6 +46,7 @@ export class SpinViewComponent implements OnInit, AfterViewInit {
    * counterintuitive, the higher the number, the less sensitivity
    */
   sensibility = 30
+  othersensibility = 25
   moveX = 0
 
   currentColumn = 0
@@ -104,12 +110,17 @@ export class SpinViewComponent implements OnInit, AfterViewInit {
   }
 
   changeSens(val: number) {
-    if (val > 0 && this.sensibility < 40) {
+    if (val > 0 && this.sensibility < 45) {
       this.sensibility += val
     }
     if (val < 0 && this.sensibility > 0) {
       this.sensibility += val
     }
+  }
+
+  changeSensSlider(e: number) {
+    this.sensibility = 55 - e
+
   }
 
 }
