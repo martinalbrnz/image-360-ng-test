@@ -1,14 +1,5 @@
 <section>
 	<h1>Todo bien</h1>
-	<!-- <div #spinner
-		[style.width]="(width/columns)+'px'"
-		[style.height]="(height/rows)+'px'"
-		[style.object-position]="-(width/columns*(currentColumn))
-			+'px '
-			+(-height/rows*(currentRow))
-			+'px'"
-		class="spinImg"
-	></div> -->
 	<div #spinner
 		appSpinner
 		[style.width]="(width/columns)+'px'"
@@ -20,6 +11,13 @@
 		[style.background-size]="(columns*100)+'%'"
 		class="spinImg"
 	></div>
+
+	<p>Sensibilidad</p>
+	<div class="buttonCont">
+		<button class="sensbtn" (click)="changeSens(-1)">-</button>
+		<p>{{ sensibility }}</p>
+		<button class="sensbtn" (click)="changeSens(1)">+</button>
+	</div>
 	
 	<div class="buttonCont">
 		<button (click)="prevCol()">izquierda</button>

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SpinnerDirective } from 'src/app/directives/spinner.directive';
 import { SpinnerService } from 'src/app/services/spinner.service';
-import { map, Observable, throttleTime} from 'rxjs'
+import { bufferCount, map, Observable, throttleTime } from 'rxjs'
 
 @Component({
   selector: 'app-spin-view',
@@ -13,14 +13,11 @@ import { map, Observable, throttleTime} from 'rxjs'
 })
 export class SpinViewComponent implements OnInit, AfterViewInit {
 
-  constructor (
+  constructor(
     private spinnerService: SpinnerService,
   ) { }
 
-  @ViewChild("spinner") spinner?: ElementRef
-
-  private mouse?: { posX: number, posY: number }
-  private mouseClick?: { x: number, y: number, left: number, top: number }
+  // @ViewChild("spinner") spinner?: ElementRef
 
   mouse$?: Observable<unknown>
 
@@ -33,15 +30,45 @@ export class SpinViewComponent implements OnInit, AfterViewInit {
   // height = 563
   // width = 1200
 
+  aValue = 10
+
+  valueChange(ev: any) {
+    console.log(ev)
+  }
+
+  /**
+   * amount of pixels u have to move in order to change img
+   * counterintuitive, the higher the number, the less sensitivity
+   */
+  sensibility = 30
+  moveX = 0
+
   currentColumn = 0
   currentRow = 0
 
-
   ngOnInit(): void {
     this.mouse$ = this.spinnerService.mouse.pipe(
-      // throttleTime(100),
+      throttleTime(16),
+      bufferCount(3, 1)
     )
-    this.mouse$.subscribe(val => console.log(val))
+    this.mouse$.subscribe((val: any) => {
+      if (val[1].posX > val[0].posX && val[2].posX > val[1].posX) {
+        this.moveX += val[2].posX - val[1].posX
+        if (this.moveX >= this.sensibility) {
+          this.nextCol()
+          this.moveX = this.moveX % this.sensibility
+          // console.log('next')
+        }
+      } else if (val[1].posX < val[0].posX && val[2].posX < val[1].posX) {
+        this.moveX -= val[1].posX - val[2].posX
+        if (Math.abs(this.moveX) >= this.sensibility) {
+          this.prevCol()
+          this.moveX = this.moveX % this.sensibility
+          // console.log('prev')
+        }
+      }
+      // console.log(this.moveX)
+    })
   }
 
   ngAfterViewInit(): void {
@@ -73,6 +100,15 @@ export class SpinViewComponent implements OnInit, AfterViewInit {
       this.currentRow = 0
     } else {
       this.currentRow += 1
+    }
+  }
+
+  changeSens(val: number) {
+    if (val > 0 && this.sensibility < 40) {
+      this.sensibility += val
+    }
+    if (val < 0 && this.sensibility > 0) {
+      this.sensibility += val
     }
   }
 

@@ -13,9 +13,8 @@ export class SpinnerDirective {
 
   @HostListener("mousemove", ['$event'])
   onMouseMove(event: MouseEvent) {
-    if (event.button) {
-      console.log('jeje')
+    if (event.buttons === 1) {
+      this.spinnerService.setMouse({ posX: event.clientX, posY: event.clientY })
     }
-    this.spinnerService.setMouse({ posX: event.clientX, posY: event.clientY })
   }
 }
