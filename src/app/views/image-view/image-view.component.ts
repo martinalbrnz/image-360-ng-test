@@ -108,9 +108,11 @@ export class ImageViewComponent {
       const dialogRef = this.dialog.open(NewHotspotComponent)
 
       dialogRef.afterClosed().subscribe(res => {
-
-        console.log(res)
-
+        /**
+         * TODO: Should add API call to create/update
+         * TODO: Should add img upload here
+         * TODO: Edit and delete a Hotspot
+         */
         if (res) {
           this.panorama.addHotSpot({
             yaw: posy,
@@ -120,7 +122,6 @@ export class ImageViewComponent {
           })
         }
       })
-
     }
   }
 }

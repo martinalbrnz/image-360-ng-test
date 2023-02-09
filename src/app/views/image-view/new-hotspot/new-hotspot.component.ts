@@ -24,4 +24,9 @@ export class NewHotspotComponent {
   constructor(
     public dialogRef: MatDialogRef<NewHotspotComponent>,
   ) { }
+
+  closeModal(event?: KeyboardEvent) {
+    if (event && event.key != 'Enter') return
+    this.dialogRef.close(this.text)
+  }
 }
