@@ -1,0 +1,7 @@
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+	<mat-form-field class="example-form-field">
+		<mat-label>Texto del Hotspot</mat-label>
+		<input matInput type="text" [(ngModel)]="text">
+	</mat-form-field>
+	<button mat-flat-button color="primary" [mat-dialog-close]="text">Guardar Hotspot</button>
+</div>

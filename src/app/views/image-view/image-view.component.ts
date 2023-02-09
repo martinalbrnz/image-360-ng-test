@@ -1,17 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { NewHotspotComponent } from './new-hotspot/new-hotspot.component';
 declare let pannellum: any;
 
 @Component({
   selector: 'app-image-view',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+  ],
   templateUrl: './image-view.component.html',
   styleUrls: ['./image-view.component.scss']
 })
 export class ImageViewComponent {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
   panorama?: any
   descripcion: string = ''
 
@@ -97,15 +102,23 @@ export class ImageViewComponent {
 
   @HostListener('window:click', ['$event'])
   onClick(e: MouseEvent) {
-    console.log(this.panorama.getConfig())
     if (e.ctrlKey) {
       const [posx, posy] = this.panorama.mouseEventToCoords(e);
-      // console.log({ x: posx, y: posy });
-      this.panorama.addHotSpot({
-        yaw: posy,
-        pitch: posx,
-        type: "info",
-        text: "Punto de interés",
+
+      const dialogRef = this.dialog.open(NewHotspotComponent)
+
+      dialogRef.afterClosed().subscribe(res => {
+
+        console.log(res)
+
+        if (res) {
+          this.panorama.addHotSpot({
+            yaw: posy,
+            pitch: posx,
+            type: "info",
+            text: res,
+          })
+        }
       })
 
     }
