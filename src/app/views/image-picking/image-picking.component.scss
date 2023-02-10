@@ -1,19 +1,44 @@
 .homeContainer {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-	gap: 20px;
-	
-	.linkContainer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-color: darkgray;
-		border-radius: 2px;
-		width: 300px;
-		height: 300px;
-	}
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  .linkContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+		position: relative;
+    background-color: darkgray;
+    border-radius: 2px;
+    width: 300px;
+    height: 300px;
+		
+		.linkTitle {
+			// display: none;
+			width: 100%;
+			color: white;
+			text-align: center;
+			background-color: #2349;
+			backdrop-filter: blur(2px);
+			padding: 28px;
+			z-index: 100;
+			transition: 2s;
+		}
+		
+		// &:hover .linkTitle {
+		// 	transition: 2s;
+		// 	display: block;
+		// }
+		
+    .splashImage {
+			position: absolute;
+      width: 300px;
+      height: 300px;
+			border-radius: 2px;
+    }
+  }
 }
