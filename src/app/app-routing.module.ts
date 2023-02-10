@@ -4,22 +4,22 @@ import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
   {
-    path: 'panorama',
+    path: 'panorama/interior',
     loadComponent: () => import('../app/views/panorama/panorama.component')
     .then(m => m.PanoramaComponent),
   },
   {
-    path: 'pick',
+    path: 'panorama/pick',
     loadComponent: () => import('../app/views/image-picking/image-picking.component')
     .then(m => m.ImagePickingComponent),
   },
   {
-    path: 'cielo',
+    path: 'panorama/cielo',
     loadComponent: () => import('../app/views/cielo/cielo.component')
     .then(m => m.CieloComponent),
   },
   {
-    path: 'la-favorita',
+    path: 'panorama/la-favorita',
     loadComponent: () => import('../app/views/la-favorita/la-favorita.component')
     .then(m => m.LaFavoritaComponent),
   },
