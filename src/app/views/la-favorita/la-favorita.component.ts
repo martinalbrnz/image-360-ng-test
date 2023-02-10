@@ -1,21 +1,21 @@
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { panoramas } from './favoritaMocks';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { panoramas } from './mock';
-import { NewHotspotComponent } from './new-hotspot/new-hotspot.component';
+import { NewHotspotComponent } from '../image-view/new-hotspot/new-hotspot.component';
 declare let pannellum: any;
 
 @Component({
-  selector: 'app-image-view',
+  selector: 'app-la-favorita',
   standalone: true,
   imports: [
     CommonModule,
     MatDialogModule,
   ],
-  templateUrl: './image-view.component.html',
-  styleUrls: ['./image-view.component.scss']
+  templateUrl: './la-favorita.component.html',
+  styleUrls: ['./la-favorita.component.scss']
 })
-export class ImageViewComponent implements OnInit {
+export class LaFavoritaComponent {
   constructor(
     public dialog: MatDialog,
   ) { }
