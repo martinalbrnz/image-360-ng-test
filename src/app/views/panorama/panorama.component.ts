@@ -1,21 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { NewHotspotComponent } from '../image-view/new-hotspot/new-hotspot.component';
 import { panoramas } from './mock';
-import { NewHotspotComponent } from './new-hotspot/new-hotspot.component';
 declare let pannellum: any;
 
 @Component({
-  selector: 'app-image-view',
+  selector: 'app-panorama',
   standalone: true,
   imports: [
     CommonModule,
     MatDialogModule,
   ],
-  templateUrl: './image-view.component.html',
-  styleUrls: ['./image-view.component.scss']
+  templateUrl: './panorama.component.html',
+  styleUrls: ['./panorama.component.scss']
 })
-export class ImageViewComponent implements OnInit {
+export class PanoramaComponent {
   constructor(
     public dialog: MatDialog,
   ) { }
